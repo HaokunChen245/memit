@@ -43,8 +43,8 @@ def demo_model_editing(
     print(hparams)
 
     print_loud("Generating pre-update text")
-    pre_update_text = generate_fast(model, tok, generation_prompts, max_out_len=100)
-    print(pre_update_text)
+    # pre_update_text = generate_fast(model, tok, generation_prompts, max_out_len=100)
+    # print(pre_update_text)
 
     print_loud(f"Applying {alg_name} to model")
     model_new, orig_weights = apply_method(
@@ -56,25 +56,25 @@ def demo_model_editing(
     )
 
     print_loud("Generating post-update text")
-    post_update_text = generate_fast(
-        model_new, tok, generation_prompts, max_out_len=100
-    )
-    print(post_update_text)
+    # post_update_text = generate_fast(
+    #     model_new, tok, generation_prompts, max_out_len=100
+    # )
+    # print(post_update_text)
 
-    print_loud("Summarizing differences")
-    for i, (prompt, pre, post) in enumerate(
-        zip(generation_prompts, pre_update_text, post_update_text)
-    ):
-        if i > 0:
-            print("".join(["-" for _ in range(10)]))
+    # print_loud("Summarizing differences")
+    # for i, (prompt, pre, post) in enumerate(
+    #     zip(generation_prompts, pre_update_text, post_update_text)
+    # ):
+    #     if i > 0:
+    #         print("".join(["-" for _ in range(10)]))
 
-        prompt_str = "[Prompt]:"
-        pre_str = f"[Pre-{alg_name}]:"
-        post_str = f"[Post-{alg_name}]:"
-        pad_to = 1 + max(len(prompt_str), len(pre_str), len(post_str))
+    #     prompt_str = "[Prompt]:"
+    #     pre_str = f"[Pre-{alg_name}]:"
+    #     post_str = f"[Post-{alg_name}]:"
+    #     pad_to = 1 + max(len(prompt_str), len(pre_str), len(post_str))
 
-        for s, t in zip([prompt_str, post_str, pre_str], [prompt, post, pre]):
-            print(s.ljust(pad_to), t)
+    #     for s, t in zip([prompt_str, post_str, pre_str], [prompt, post, pre]):
+    #         print(s.ljust(pad_to), t)
 
     return model_new, orig_weights
 
