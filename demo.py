@@ -7,7 +7,7 @@ from util.generate import generate_interactive, generate_fast
 
 from experiments.py.demo import demo_model_editing
 # MODEL_NAME = "meta-llama/Llama-2-7b-hf"
-# MODEL_NAME = "meta-llama/Llama-3.1-8B"
+# MODEL_NAME = "meta-llama/Meta-Llama-3.1-8B"
 # MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.3"
 MODEL_NAME = "microsoft/Phi-3-mini-4k-instruct"
 # MODEL_NAME = "EleutherAI/gpt-j-6B"
